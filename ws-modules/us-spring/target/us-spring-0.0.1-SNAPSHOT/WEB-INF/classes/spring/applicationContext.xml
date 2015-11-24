@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:wsc="http://jax-ws.dev.java.net/spring/core" 
+	xmlns:wss="http://jax-ws.dev.java.net/spring/servlet"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
+		http://jax-ws.dev.java.net/spring/core 
+		http://jax-ws.dev.java.net/spring/core.xsd
+		http://jax-ws.dev.java.net/spring/servlet
+		http://jax-ws.dev.java.net/spring/servlet.xsd">
+
+	<context:component-scan base-package="com.lin.umws" />
+	
+	<!-- 第一种整合方式 不需要其他配置 但是url有变化 如http://localhost:8880/us/UserService?wsdl -->
+	<!-- <bean class="org.springframework.remoting.jaxws.SimpleJaxWsServiceExporter">
+		<property name="baseAddress" value="http://localhost:8880/us/" />
+	</bean> -->
+	
+	<!-- 第二种整合方式 同时web.xml必须要配置 -->
+	<wss:binding url="/ws/us">
+		<wss:service>
+			<wsc:service bean="#userService">
+				<wsc:metadata>
+					<value>wsdl/user.xsd</value>
+				</wsc:metadata>
+			</wsc:service>
+		</wss:service>
+	</wss:binding>
+	
+</beans>

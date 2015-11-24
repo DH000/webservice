@@ -1,0 +1,8 @@
+com/lin/umws/exception/UserException.class
+com/lin/umws/handler/SOAPMessageHeadler.class
+com/lin/umws/entity/LicenseType.class
+com/lin/umws/service/impl/SpringServiceImpl.class
+com/lin/umws/entity/User.class
+com/lin/umws/service/impl/UserServiceImpl.class
+com/lin/umws/service/ISpringService.class
+com/lin/umws/service/IUserService.class

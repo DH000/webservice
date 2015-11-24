@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+		xmlns:xmime="http://www.w3.org/2005/05/xmlmime"
+		targetNamespace="http://service.umws.lin.com/" 
+		xmlns:tns="http://service.umws.lin.com/" 
+		elementFormDefault="qualified">
+		
+	<xsd:element name="add" type="tns:userType" />
+	<xsd:element name="addResponse" type="tns:addResponseType" />
+	<xsd:element name="delete" type="tns:deleteType" />
+	<xsd:element name="deleteResponse" type="tns:deleteResponseType" />
+	<xsd:element name="list" type="tns:listType" />
+	<xsd:element name="listResponse" type="tns:listResponseType" />
+	<xsd:element name="login" type="tns:loginType" />
+	<xsd:element name="loginResponse" type="tns:loginResponseType" />
+	<xsd:element name="badUpload" type="tns:badUploadType" />
+	<xsd:element name="badUploadResponse" type="tns:emptyType" />
+	<xsd:element name="license" type="tns:licenseType" />
+	<xsd:element name="mtomUpload" type="tns:mtomUploadType" />
+	<xsd:element name="mtomUploadResponse" type="tns:emptyType" />
+	<xsd:element name="handlerUpload" type="tns:handlerUploadType" />
+	<xsd:element name="handlerUploadResponse" type="tns:emptyType" />
+	
+	<xsd:complexType name="handlerUploadType">
+		<xsd:sequence>
+			<xsd:element name="handlerFile" xmime:expectedContentTypes="application/octet-stream" type="xsd:base64Binary" form="qualified" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="mtomUploadType">
+		<xsd:sequence>
+			<xsd:element name="mtomFile" type="xsd:base64Binary" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:element name="UserException">
+		<xsd:complexType>
+			<xsd:sequence minOccurs="0" maxOccurs="unbounded">
+				<xsd:element name="message" type="xsd:string" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:complexType name="emptyType">
+		<xsd:sequence />
+	</xsd:complexType>
+	
+	<xsd:complexType name="badUploadType">
+		<xsd:sequence>
+			<xsd:element name="file" type="xsd:base64Binary" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:simpleType name="sexType">
+		<xsd:restriction base="xsd:integer">
+			<xsd:enumeration value="1" />
+			<xsd:enumeration value="2" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:complexType name="user">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:int" />
+			<xsd:element name="username" type="xsd:string" />
+			<xsd:element name="password" type="xsd:string" />
+			<xsd:element name="sex" type="tns:sexType" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="userType">
+		<xsd:sequence>
+			<xsd:element name="user" type="tns:user" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="licenseType">
+		<xsd:sequence>
+			<xsd:element name="user" type="tns:user" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="addResponseType">
+		<xsd:sequence />
+	</xsd:complexType>
+	
+	<xsd:complexType name="deleteType">
+		<xsd:sequence>
+			<xsd:element name="user" type="tns:user" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="deleteResponseType">
+		<xsd:sequence />
+	</xsd:complexType>
+	
+	<xsd:complexType name="listType">
+		<xsd:sequence />
+	</xsd:complexType>
+	
+	<xsd:complexType name="listResponseType">
+		<xsd:sequence minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="user" type="tns:user" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="loginType">
+		<xsd:sequence>
+			<xsd:element name="username" type="xsd:string" />
+			<xsd:element name="password" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="loginResponseType">
+		<xsd:sequence minOccurs="0">
+			<xsd:element name="user" type="tns:user" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+</xsd:schema>

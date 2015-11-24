@@ -1,0 +1,7 @@
+/usr/local/codes/java/ws-modules/us-server/src/main/java/com/lin/umws/service/IUserService.java
+/usr/local/codes/java/ws-modules/us-server/src/main/java/com/lin/umws/entity/User.java
+/usr/local/codes/java/ws-modules/us-server/src/main/java/com/lin/umws/service/impl/UserServiceImpl.java
+/usr/local/codes/java/ws-modules/us-server/src/main/java/com/lin/umws/handler/SOAPMessageHeadler.java
+/usr/local/codes/java/ws-modules/us-server/src/main/java/com/lin/umws/entity/LicenseType.java
+/usr/local/codes/java/ws-modules/us-server/src/main/java/com/lin/umws/servlet/InitServlet.java
+/usr/local/codes/java/ws-modules/us-server/src/main/java/com/lin/umws/exception/UserException.java

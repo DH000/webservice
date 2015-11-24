@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions 
+		xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+		xmlns:tns="http://service.umws.lin.com/" 
+		xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+		name="UserService" 
+		targetNamespace="http://service.umws.lin.com/">
+	
+	<wsdl:types>
+		<!-- <xsd:schema>
+			<xsd:import namespace="http://service.umws.lin.com/" schemaLocation="user.xsd" />
+		</xsd:schema> -->
+		<xsd:schema targetNamespace="http://service.umws.lin.com/">
+			<xsd:include schemaLocation="user.xsd" />
+		</xsd:schema>
+	</wsdl:types>
+	
+	<wsdl:message name="add">
+		<wsdl:part element="tns:add" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="addResponse" >
+		<wsdl:part element="tns:addResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="delete">
+		<wsdl:part element="tns:delete" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="deleteResponse" >
+		<wsdl:part element="tns:deleteResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="list">
+		<wsdl:part element="tns:list" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="listResponse">
+		<wsdl:part element="tns:listResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="login">
+		<wsdl:part element="tns:login" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="loginResponse">
+		<wsdl:part element="tns:loginResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="badUpload">
+		<wsdl:part element="tns:badUpload" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="badUploadResponse">
+		<wsdl:part element="tns:badUploadResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="license">
+		<wsdl:part element="tns:license" name="license" />
+	</wsdl:message>
+	<wsdl:message name="UserException">
+		<wsdl:part element="tns:UserException" name="fault" />
+	</wsdl:message>
+	<wsdl:message name="mtomUpload">
+		<wsdl:part element="tns:mtomUpload" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="mtomUploadResponse">
+		<wsdl:part element="tns:mtomUploadResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="handlerUpload">
+		<wsdl:part name="parameters" element="tns:handlerUpload" />
+	</wsdl:message>
+	<wsdl:message name="handlerUploadResponse">
+		<wsdl:part name="parameters" element="tns:handlerUploadResponse" />
+	</wsdl:message>
+	
+	<wsdl:portType name="IUserService">
+		<wsdl:operation name="add">
+			<wsdl:input message="tns:add" />
+			<wsdl:output message="tns:addResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="delete">
+			<wsdl:input message="tns:delete" />
+			<wsdl:output message="tns:deleteResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="list">
+			<wsdl:input message="tns:list" />
+			<wsdl:output message="tns:listResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="login">
+			<wsdl:input message="tns:login" />
+			<wsdl:output message="tns:loginResponse" />
+			<wsdl:fault name="UserException" message="tns:UserException" />
+		</wsdl:operation>
+		<wsdl:operation name="badUpload">
+			<wsdl:input message="tns:badUpload" />
+			<wsdl:output message="tns:badUploadResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="mtomUpload">
+			<wsdl:input message="tns:mtomUpload" />
+			<wsdl:output message="tns:mtomUploadResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="handlerUpload">
+			<wsdl:input message="tns:handlerUpload" />
+			<wsdl:output message="tns:handlerUploadResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	
+	<wsdl:binding name="UserServiceSOAP" type="tns:IUserService">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="add">
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="delete">
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="list">
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="login">
+			<wsdl:input>
+				<soap:body use="literal" />
+				<soap:header use="literal" part="license" message="tns:license" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="UserException" >
+				<soap:fault name="UserException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="badUpload">
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="mtomUpload">
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="handlerUpload">
+			<wsdl:input>
+				<soap:body/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	
+	<wsdl:service name="UserService">
+		<wsdl:port binding="tns:UserServiceSOAP" name="UserServicePort">
+			<soap:address location="http://localhost:8888/us" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

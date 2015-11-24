@@ -1,0 +1,7 @@
+com/lin/umws/handler/SOAPMessageHeadler.class
+com/lin/umws/exception/UserException.class
+com/lin/umws/service/IUserService.class
+com/lin/umws/entity/LicenseType.class
+com/lin/umws/entity/User.class
+com/lin/umws/servlet/InitServlet.class
+com/lin/umws/service/impl/UserServiceImpl.class

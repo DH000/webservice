@@ -1,0 +1,8 @@
+/usr/local/codes/java/ws-modules/us-spring/src/main/java/com/lin/umws/service/ISpringService.java
+/usr/local/codes/java/ws-modules/us-spring/src/main/java/com/lin/umws/service/impl/UserServiceImpl.java
+/usr/local/codes/java/ws-modules/us-spring/src/main/java/com/lin/umws/handler/SOAPMessageHeadler.java
+/usr/local/codes/java/ws-modules/us-spring/src/main/java/com/lin/umws/service/impl/SpringServiceImpl.java
+/usr/local/codes/java/ws-modules/us-spring/src/main/java/com/lin/umws/exception/UserException.java
+/usr/local/codes/java/ws-modules/us-spring/src/main/java/com/lin/umws/service/IUserService.java
+/usr/local/codes/java/ws-modules/us-spring/src/main/java/com/lin/umws/entity/LicenseType.java
+/usr/local/codes/java/ws-modules/us-spring/src/main/java/com/lin/umws/entity/User.java
