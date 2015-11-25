@@ -12,5 +12,6 @@
 		<module>ws-client</module>
 		<module>ws-server</module>
 		<module>ws-parent</module>
+		<module>cxf-server</module>
 	</modules>
 </project>
