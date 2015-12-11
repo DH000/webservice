@@ -13,5 +13,7 @@
 		<module>ws-server</module>
 		<module>ws-parent</module>
 		<module>cxf-server</module>
+		<module>cxf-client</module>
+		<module>cxf-spring</module>
 	</modules>
 </project>
